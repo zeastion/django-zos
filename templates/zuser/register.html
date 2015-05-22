@@ -1,0 +1,27 @@
+{% extends 'zuser/base.html' %}
+{% block title %}Register{% endblock %}
+{% block body %}
+
+    <h1>Register with ZOS</h1>
+    <hr/>
+
+    {% if registered %}
+
+    <strong>Thank you for registering</strong>
+    <br/>
+    <a href="/zuser/">Return to the homepage</a>
+
+    {% else %}
+
+    <strong>Register here</strong>
+    <br/>
+    <form id="user_form" method="post" action="/zuser/register/" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <input type="submit" name="submit" value="Register" />
+    </form>
+
+    {% endif %}
+
+{% endblock %}
