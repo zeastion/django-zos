@@ -15,32 +15,42 @@ def index(request):
 
 def user_register(request):
 
-    global profile_form
     registered = False
+    error = []
 
     if request.method == 'POST':
+
         user_form = UserForm(data=request.POST)
         profile_form = UserProfileForm(data=request.POST)
 
-        if user_form.is_valid() and profile_form.is_valid():
-            user = user_form.save()
-            user.set_password(user.password)
-            user.save()
+        password = request.POST.get('password', )
+        conpassword = request.POST.get('conpassword', )
 
-            profile = profile_form.save(commit=False)
-            profile.user = user
-            profile.save()
-
-            registered = True
+        if password != conpassword:
+            error.append('Type the same passwords')
 
         else:
-            print user_form.errors, profile_form.errors
+            if user_form.is_valid() and profile_form.is_valid():
+
+                user = user_form.save()
+                print 1, conpassword, 2
+                user.set_password(conpassword)
+                user.save()
+
+                profile = profile_form.save(commit=False)
+                profile.user = user
+                profile.save()
+
+                registered = True
+
+            else:
+                print user_form.errors, profile_form.errors
 
     else:
         user_form = UserForm()
         profile_form = UserProfileForm()
 
-    return render(request, 'zuser/register.html', {'user_form': user_form, 'profile_form': profile_form, 'registered': registered})
+    return render(request, 'zuser/register.html', {'user_form': user_form, 'profile_form': profile_form, 'registered': registered, 'error': error})
 
 
 # Zuser Login

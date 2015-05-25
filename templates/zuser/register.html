@@ -14,11 +14,13 @@
     {% else %}
 
     <strong>Register here</strong>
-    <br/>
+    <br/><br/>
     <form id="user_form" method="post" action="/zuser/register/" enctype="multipart/form-data">
         {% csrf_token %}
         {{ user_form.as_p }}
         {{ profile_form.as_p }}
+        {{ error }}
+        <hr/>
         <input type="submit" name="submit" value="Register" />
     </form>
 
