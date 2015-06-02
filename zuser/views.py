@@ -50,7 +50,7 @@ def user_register(request):
         user_form = UserForm()
         profile_form = UserProfileForm()
 
-    return render(request, 'zuser/register.html', {'user_form': user_form, 'profile_form': profile_form, 'registered': registered, 'error': error})
+    return render(request, 'zuser/register.html', {'user_form': user_form, 'profile_form': profile_form, 'registered': registered, })#'error': error})
 
 
 # Zuser Login
@@ -66,7 +66,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return render(request, 'zuser/success.html')
+                return render(request, 'zuser/index.html')
             else:
                 return render(request, 'zuser/fail.html')
         else:
