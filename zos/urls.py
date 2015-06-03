@@ -6,8 +6,9 @@ urlpatterns = patterns('',
     # url(r'^$', 'zos.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    #url(r'^&', include('zuser.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^zuser/', include('zuser.urls')),
     url(r'^zasset/', include('zasset.urls')),
-    url(r'^zstaff/', include('zstaff.urls')),
+
 )

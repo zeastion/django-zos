@@ -8,19 +8,21 @@
     <hr/>
 
     {% if user.is_authenticated %}
-        <a href="/zuser/restricted/">Restricted Page</a>
         <br/>
-        <a href="/zasset">Asset</a>
-        <br/>
-        <a href="/zstaff">Staff</a>
-        <br/>
-        <a href="/zuser/logout/">Logout</a>
+        <h4><a href="/zuser/restricted/">Restricted Page</a></h4>
+
+        <h4><a href="/zasset">Asset</a></h4>
+
+        <h4><a href="/zasset/staffindex">Staff</a></h4>
+
+        <h4><a href="/zuser/logout/">Logout</a></h4>
         <br/>
     {% else %}
-        <a href="/zuser/login/">Login</a>
         <br/>
-        <a href="/zuser/register/">Register</a>
+        <h4><a href="/zuser/login/">Login</a></h4>
         <br/>
+        <h4><a href="/zuser/register/">Register</a></h4>
+
     {% endif %}
 
 {% endblock %}

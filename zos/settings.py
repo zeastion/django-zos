@@ -44,7 +44,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'zuser',
     'zasset',
-    'zstaff',
 )
 
 MIDDLEWARE_CLASSES = (

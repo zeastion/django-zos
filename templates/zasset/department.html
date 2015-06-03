@@ -1,0 +1,59 @@
+#coding=utf-8
+
+{% extends "zuser/base.html" %}
+
+{% block title %}ZOS Department{% endblock %}
+
+{% block body %}
+
+    <h1>DEPARTMENT MANAGEMENT</h1>
+    <hr/>
+
+
+    {% if departments %}
+
+        <table>
+            <tr>
+                <th>NAME</th>
+                <!--
+                <th></th>
+                <th>GENDER</th>
+                <th></th>
+                <th>DEPARTMENT</th>
+                <th></th>
+                <th>PHONE</th>
+                <th></th>
+                <th>EMAIL</th>
+                <th></th>
+                <th>BIRTHDAY</th>
+                -->
+            </tr>
+            {% for department in departments %}
+            <tr>
+                <td>{{ department.dname }}</td>
+                <!--
+                <td>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                <td>{{ staff.gender }}</td>
+                <td>&nbsp;&nbsp;-&nbsp;&nbsp;</td>
+                <td>{{ staff.depart }}</td>
+                <td>&nbsp;&nbsp;-&nbsp;&nbsp;</td>
+                <td>{{ staff.phone }}</td>
+                <td>&nbsp;&nbsp;-&nbsp;&nbsp;</td>
+                <td>{{ staff.email }}</td>
+                <td>&nbsp;&nbsp;-&nbsp;&nbsp;</td>
+                <td>{{ staff.birth }}</td>
+                -->
+            </tr>
+            {% endfor %}
+        </table>
+
+    {% else %}
+        <strong>There are no department present.</strong>
+    {% endif %}
+    <hr/>
+
+    <h4><a href="/zasset/staff/">Staff Management</a></h4>
+    <br/>
+
+
+{% endblock %}
