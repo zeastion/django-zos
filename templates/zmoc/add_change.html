@@ -1,0 +1,39 @@
+#coding=utf-8
+
+{% extends "zuser/base.html" %}
+
+{% block title %}ZOS MOC{% endblock %}
+
+{% block side %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>MOC</h1>
+    <hr/>
+
+    <form id="change_form" method="post" action="/zmoc/addchange/">
+        {% csrf_token %}
+
+
+        {% for hidden in moc_form.hidden_fields %}
+            {{ hidden }}
+
+        {% endfor %}
+
+        {% for field in moc_form.visible_fields %}
+            {{ field.errors }}
+            {{ field.help_text }}
+            {{ field }}
+        {% endfor %}
+
+<!--
+        {{ moc_form.as_p }}
+-->
+        <hr/>
+        <input type="submit" name="Submit" value="Create change records" />
+
+    </form>
+
+{% endblock %}

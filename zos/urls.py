@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^zuser/', include('zuser.urls')),
     url(r'^zasset/', include('zasset.urls')),
+    url(r'^zmoc/', include('zmoc.urls')),
 
 )

@@ -33,7 +33,6 @@ def user_register(request):
             if user_form.is_valid() and profile_form.is_valid():
 
                 user = user_form.save()
-                print 1, conpassword, 2
                 user.set_password(conpassword)
                 user.save()
 

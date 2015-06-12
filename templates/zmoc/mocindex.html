@@ -1,0 +1,65 @@
+#coding=utf-8
+
+{% extends "zuser/base.html" %}
+
+{% block title %}ZOS Moc{% endblock %}
+
+{% block side %}
+    <br/>
+    <a href="/zasset"><h4>ASSET</h4></a>
+    <a href="/zasset/staffindex"><h4>STAFF</h4></a>
+{% endblock %}
+
+{% block body %}
+
+    <h1>CHANGE RECORDS</h1>
+    <hr/>
+
+
+    {% if changes %}
+
+        <table>
+            <tr>
+                <th>TYPE</th>
+                <th></th>
+                <th>UID</th>
+                <th></th>
+                <th>COMMIT-ID</th>
+                <th></th>
+                <th>TAG-ID</th>
+                <th></th>
+                <th>TIME-STAMP</th>
+                <th></th>
+                <th>MEMBER</th>
+                <th></th>
+                <th>CONTENT</th>
+            </tr>
+            {% for change in changes %}
+            <tr>
+                <td>{{ change.type }}</td>
+                <td>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+                <td align="right">{{ change.uid }}</td>
+                <td>&nbsp;&nbsp;-&nbsp;&nbsp;</td>
+                <td>{{ change.commit_id }}</td>
+                <td>&nbsp;&nbsp;-&nbsp;&nbsp;</td>
+                <td>{{ change.tag_id }}</td>
+                <td>&nbsp;&nbsp;-&nbsp;&nbsp;</td>
+                <td>{{ change.stamp }}</td>
+                <td>&nbsp;&nbsp;-&nbsp;&nbsp;</td>
+                <td>{{ change.staff }}</td>
+                <td>&nbsp;&nbsp;-&nbsp;&nbsp;</td>
+                <td>{{ change.content }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    {% else %}
+        <strong>There are no change records present.</strong>
+    {% endif %}
+
+    <hr/>
+
+    <h4><a href="/admin/zmoc/change/add/">Add Change Record</a></h4>
+    <br/>
+
+{% endblock %}

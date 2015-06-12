@@ -8,6 +8,6 @@ urlpatterns = patterns('',
     url(r'^software/$', views.software, name='software'),
     url(r'^staffindex/$', views.zstaffindex, name='zstaffindex'),
     url(r'^staff/$', views.zstaff, name='zstaff'),
-    url(r'^department/$', views.zdepartment, name='zdepartment')
+    url(r'^department/$', views.zdepartment, name='zdepartment'),
 
 )
